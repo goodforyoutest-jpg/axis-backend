@@ -17,11 +17,13 @@ const studyRoutes = require('./routes/study');
 const aiRoutes = require('./routes/ai');
 const scheduleRoutes = require('./routes/schedule');
 const notifyRoutes = require('./routes/notify');
+const icaiRoutes = require('./routes/icai');
 
 app.use('/api/study', studyRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/schedule', scheduleRoutes);
 app.use('/api/notify', notifyRoutes);
+app.use('/api/icai', icaiRoutes);
 
 app.get('/', (req, res) => {
   res.json({ status: 'AXIS is running', user: process.env.USER_NAME, time: new Date().toISOString() });
