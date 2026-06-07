@@ -129,3 +129,13 @@ router.post('/tasks/:id/complete', async (req, res) => {
 });
 
 module.exports = router;
+
+router.get('/checkin-status', async (req, res) => {
+  try {
+    const { date } = req.query;
+    const { data } = await supabase.from('checkins').select('*').eq('date', date).single();
+    res.json({ success: true, checkin: data });
+  } catch (err) {
+    res.json({ success: true, checkin: null });
+  }
+});
